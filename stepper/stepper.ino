@@ -4,14 +4,14 @@
 const int stepsPerRevolution = 1024;
 
 // stepsPerRevolution and pins
-Stepper myStepper(stepsPerRevolution, 8, 10, 9, 11);
+Stepper stepper_motor(stepsPerRevolution, 8, 10, 9, 11);
 
-void setup() { myStepper.setSpeed(10); }
+void setup() { stepper_motor.setSpeed(10); }
 
 void loop() {
-  myStepper.step(stepsPerRevolution);
+  stepper_motor.step(stepsPerRevolution);
   delay(1000);
 
-  myStepper.step(-stepsPerRevolution);
+  stepper_motor.step(-stepsPerRevolution);
   delay(1000);
 }
