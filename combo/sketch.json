@@ -1,6 +1,6 @@
 {
   "cpu": {
     "fqbn": "arduino:avr:uno",
-    "port": "serial:///dev/cu.usbserial-1120"
+    "port": "serial:///dev/cu.usbserial-130"
   }
 }

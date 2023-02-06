@@ -12,7 +12,6 @@ Stepper stepper_motor(stepsPerRevolution, 8, 10, 9, 11);
 int ButtonValue = 0; // default value of the button
 
 void setup() {
-  stepper_motor.setSpeed(10);
   pinMode(Button, INPUT);
   pinMode(LED, OUTPUT);
 }
@@ -22,14 +21,24 @@ void loop() {
   ButtonValue = digitalRead(Button);
 
   if (ButtonValue != 0) {
-    // if not zero, turn the LED on
+    stepper_motor.setSpeed(10);
+    stepper_motor.step(stepsPerRevolution * 1.5);
+    stepper_motor.step(-stepsPerRevolution * 1.5);
+    stepper_motor.step(stepsPerRevolution * 1.5);
+    stepper_motor.step(-stepsPerRevolution * 1.5);
     digitalWrite(LED, HIGH);
-    stepper_motor.step(stepsPerRevolution);
+    delay(3000);
+    digitalWrite(LED, LOW);
   }
 
   else {
-    // else turn it false
+    stepper_motor.setSpeed(15);
+    stepper_motor.step(stepsPerRevolution * 1.5);
+    stepper_motor.step(-stepsPerRevolution * 1.5);
+    stepper_motor.step(stepsPerRevolution * 1.5);
+    stepper_motor.step(-stepsPerRevolution * 1.5);
+    digitalWrite(LED, HIGH);
+    delay(3000);
     digitalWrite(LED, LOW);
-    stepper_motor.step(-stepsPerRevolution);
   }
 }

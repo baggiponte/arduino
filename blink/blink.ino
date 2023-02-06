@@ -1,23 +1,14 @@
-int ButtonValue = 0; // default value of the button
-int Button = 3;      // pin 3: input, reads the button value
-int LED = 2;         // pin 2: output for controlling the LED
+int LED = 2; // pin 2: output for controlling the LED
 
 void setup() {
-  pinMode(Button, INPUT);
+  // initialize digital pin LED_BUILTIN as an output.
   pinMode(LED, OUTPUT);
 }
 
+// the loop function runs over and over again forever
 void loop() {
-  // read the value of the button
-  ButtonValue = digitalRead(Button);
-
-  if (ButtonValue != 0) {
-    // if not zero, turn the LED on
-    digitalWrite(LED, HIGH);
-  }
-
-  else {
-    // else turn it false
-    digitalWrite(LED, LOW);
-  }
+  digitalWrite(LED, HIGH);  // turn the LED on (HIGH is the voltage level)
+  delay(1000);                      // wait for a second
+  digitalWrite(LED, LOW);   // turn the LED off by making the voltage LOW
+  delay(1000);                      // wait for a second
 }
